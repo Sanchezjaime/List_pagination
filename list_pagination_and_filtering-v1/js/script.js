@@ -34,10 +34,8 @@ const appendPageLinks = (list) => {
   const mainPage = document.querySelector(".page");
   pageButtonDiv.className = 'pagination';
   mainPage.append(pageButtonDiv);
-
   const pageButtonUl = document.createElement("ul");
   pageButtonDiv.append(pageButtonUl);
-
 
 //function creates pagination links for each page of 10
   const getNumberOfPages = Math.ceil(list.length / numberPerPage);
@@ -48,20 +46,19 @@ const appendPageLinks = (list) => {
     pageButtonAnchor.href = '#';
     pageButtonAnchor.textContent = i + 1;
     pageButtonLi.appendChild(pageButtonAnchor);
-
+  }
 
 
   const pageButton = document.querySelectorAll('a');
   pageButton[0].className = 'active';
 //event listener for pagination links and calls showPage() function also changes class name to active on selected link
-  pageButtonAnchor.addEventListener('click', (e) => {
+  pageButtonUl.addEventListener('click', (e) => {
     for(let i = 0; i < pageButton.length; i++){
       pageButton[i].className = '';
       e.target.className = 'active';
       showPage(studentList, e.target.textContent);
     }
-  });
-  }
+  })
 }
 
 
