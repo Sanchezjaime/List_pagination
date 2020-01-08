@@ -13,18 +13,19 @@ const numberPerPage = 10;
 
 //function hides students except for the 10 you select on a given page
 const showPage = (list, page) => {
+
   const startIndex = (page * numberPerPage) - numberPerPage;
   const endIndex = page * numberPerPage;
 
   for (let i = 0; i < list.length; i++) {
-    list[i].style.display = 'none';
-  }
-  for (let i = 0; i <= list.length; i++) {
     if (i >= startIndex && i < endIndex) {
-      list[i].style.display = ''
+      list[i].style.display = 'block';
+    }
+    else {
+      list[i].style.display = 'none' ;
     }
   }
-}
+};
 
 
 //function creates and appends pagination links
